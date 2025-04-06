@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Integral | Desarrollo Personal, Nutrición y Apoyo Educativo</title>
+    <style>
+        /* Estilos generales */
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6BBF59;
+            --accent-color: #e67e22;
+            --light-color: #f5f7fa;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #3a5a80;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .hero-buttons .secondary-button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .hero-buttons .secondary-button:hover {
+            background-color: white;
+            color: var(--dark-color);
+        }
+        
+        /* Servicios */
+        .services {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-cta {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .service-cta:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Sobre mí */
+        .about {
+            background-color: var(--light-color);
+            padding: 5rem 1rem;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 1rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 5rem;
+            color: rgba(74, 111, 165, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Contacto */
+        .contact {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 5rem 1rem;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #bbb;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: white;
+        }
+        
+        .contact-form form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .submit-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #5aa94a;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a2530;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .cta-button, .hero-buttons .secondary-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Estilos para la sección de precios */
+        .price-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .price-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera y Navegación -->
+    <header>
+        <nav>
+            <div class="logo">Vida<span>Integral</span></div>
+            <div class="nav-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <a href="#contacto" class="cta-button">Agendar Sesión</a>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforma tu vida personal y profesional</h1>
+            <p>Coaching integral que conecta tu bienestar físico, mental y profesional para lograr una vida plena y equilibrada</p>
+            <div class="hero-buttons">
+                <a href="#servicios" class="cta-button">Descubre mis servicios</a>
+                <a href="#contacto" class="secondary-button">Contacta conmigo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section class="services" id="servicios">
+        <div class="section-title">
+            <h2>Mis Servicios</h2>
+            <p>Ofrezco soluciones personalizadas para diferentes aspectos de tu vida, reconociendo que todos están interconectados.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coaching de desarrollo personal y profesional">
+                </div>
+                <div class="service-content">
+                    <h3>Coaching Personal y Profesional</h3>
+                    <div class="price-tag">$45.000 CLP por sesión</div>
+                    <p>Descubre cómo alinear tu vida personal y profesional para alcanzar un equilibrio que te permita brillar en ambos aspectos. Aprende a establecer metas claras y crear estrategias efectivas para lograrlas.</p>
+                    <p class="price-description">Paquete mensual: $160.000 CLP (4 sesiones)</p>
+                    <a href="#contacto" class="service-cta">Agendar sesión</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coaching de nutrición">
+                </div>
+                <div class="service-content">
+                    <h3>Coaching de Nutrición</h3>
+                    <div class="price-tag">$40.000 CLP por sesión</div>
+                    <p>Transforma tu relación con la comida y descubre un enfoque nutricional moderno y sostenible. Aprende a alimentarte correctamente, sin dietas restrictivas, para alcanzar tus objetivos de salud y bienestar.</p>
+                    <p class="price-description">Plan completo: $180.000 CLP (5 sesiones con seguimiento)</p>
+                    <a href="#contacto" class="service-cta">Agendar sesión</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Clases particulares de matemáticas y física">
+                </div>
+                <div class="service-content">
+                    <h3>Clases de Matemáticas y Física</h3>
+                    <div class="price-tag">$25.000 CLP por clase</div>
+                    <p>Ayuda a tus hijos a dominar estas materias fundamentales con clases particulares adaptadas a su nivel y estilo de aprendizaje. Refuerza su confianza y mejora su rendimiento académico.</p>
+                    <p class="price-description">Mensualidad: $85.000 CLP (4 clases)</p>
+                    <a href="#contacto" class="service-cta">Agendar clase</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section class="about" id="sobre-mi">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1500048993953-d23a436266cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Foto del coach">
+            </div>
+            <div class="about-content">
+                <h2>Sobre Mí</h2>
+                <p>Soy un coach certificado con amplia experiencia en desarrollo personal y profesional. Mi enfoque se basa en la convicción de que la vida laboral y personal son inseparables, y que para alcanzar el éxito en cualquier ámbito, necesitamos verlos como un conjunto integrado.</p>
+                <p>Además de mi formación en coaching, cuento con certificación en nutrición moderna por la Universidad de Chile, lo que me permite ofrecer una perspectiva holística del bienestar. Mi objetivo es ayudarte a desarrollar hábitos saludables y sostenibles que se adapten a tu estilo de vida.</p>
+                <p>También tengo formación en ciencias exactas, con título de Ingeniero Civil, lo que me permite ofrecer clases particulares de matemáticas y física para niños y jóvenes, ayudándoles a construir una base sólida para su futuro académico.</p>
+                <a href="#contacto" class="cta-button">Trabajemos juntos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="section-title">
+            <h2>Lo que dicen mis clientes</h2>
+            <p>Estas son algunas experiencias de personas que han trabajado conmigo.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">El coaching integral me ayudó a entender cómo mis hábitos alimenticios afectaban mi rendimiento laboral. Ahora tengo más energía, mejor concentración y he logrado un equilibrio que no creía posible.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de cliente">
+                    </div>
+                    <div class="author-info">
+                        <h4>Laura Martínez</h4>
+                        <p>Ejecutiva de Marketing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">Mi hijo siempre tuvo dificultades con las matemáticas. Después de varias sesiones, no solo mejoró sus calificaciones, sino que desarrolló un genuino interés por la materia. La paciencia y el método de enseñanza marcan la diferencia.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de cliente">
+                    </div>
+                    <div class="author-info">
+                        <h4>Carlos Rodríguez</h4>
+                        <p>Padre de familia</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">El enfoque nutricional moderno me mostró que no necesitaba dietas extremas para alcanzar mis objetivos. Aprendí a escuchar mi cuerpo y a hacer elecciones que me hacen sentir bien. He perdido peso sin sacrificar el placer de comer.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto de cliente">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ana Gómez</h4>
+                        <p>Diseñadora Gráfica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contacta Conmigo</h2>
+                <p>Estoy aquí para ayudarte a transformar tu vida. Ponte en contacto conmigo para agendar una sesión o resolver cualquier duda que tengas.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p>+56 9 1234 5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:contacto@vidaintegral.cl">contacto@vidaintegral.cl</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Ubicación</h4>
+                            <p>Consultas online y presenciales en Santiago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xyyqnglk" method="POST">
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" placeholder="¿En qué puedo ayudarte?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Vida<span>Integral</span></div>
+            
+            <div class="footer-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#sobre-mi">Sobre Mí</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">FB</a>
+                <a href="#" class="social-link">IG</a>
+                <a href="#" class="social-link">TW</a>
+                <a href="#" class="social-link">LI</a>
+            </div>
+            
+            <p class="copyright">© 2025 VidaIntegral. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Tu dirección de email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio de interés</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="coaching-personal">Coaching Personal y Profesional</option>
+                            <option value="coaching-nutricion">Coaching de Nutrición</option>
+                            <option value="clases-matematicas">Clases de Matemáticas y Física</option>
+                            <option value="otro">Otro (especificar)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
