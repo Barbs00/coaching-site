@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Integral | Desarrollo Personal, Nutrición y Reconexión</title>
+    <style>
+        /* Estilos generales */
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6BBF59;
+            --accent-color: #e67e22;
+            --light-color: #f5f7fa;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        /* Navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .cta-button:hover {
+            background-color: #3a5a80;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .hero-buttons .secondary-button {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .hero-buttons .secondary-button:hover {
+            background-color: white;
+            color: var(--dark-color);
+        }
+        
+        /* Filosofía */
+        .philosophy {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 1rem;
+            text-align: center;
+        }
+        
+        .philosophy h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .philosophy p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #555;
+        }
+        
+        .triad-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .triad-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .triad-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .triad-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Servicios */
+        .services {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 1.5rem;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-cta {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .service-cta:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Sobre nosotros */
+        .about {
+            background-color: var(--light-color);
+            padding: 5rem 1rem;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-intro h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        
+        .about-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-image {
+            height: 350px;
+            overflow: hidden;
+        }
+        
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+        }
+        
+        .member-info h3 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .member-info p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Blog y Recursos */
+        .resources {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 1rem;
+        }
+        
+        .resources-container {
+            margin-top: 3rem;
+        }
+        
+        .resources-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .resources-tab {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--light-color);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .resources-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .resources-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .resource-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .resource-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .resource-content {
+            padding: 1.5rem;
+        }
+        
+        .resource-content h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .resource-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .resource-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resource-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .resource-link:hover {
+            color: var(--dark-color);
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 1rem;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 5rem;
+            color: rgba(74, 111, 165, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: var(--dark-color);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Contacto */
+        .contact {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 5rem 1rem;
+        }
+        
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 2rem;
+            color: #bbb;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-text h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: white;
+        }
+        
+        .contact-form form {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .submit-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #5aa94a;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a2530;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .copyright {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* Estilos para la sección de precios */
+        .price-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .price-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: -1rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .cta-button, .hero-buttons .secondary-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .triad-container {
+                flex-direction: column;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabecera y Navegación -->
+    <header>
+        <nav>
+            <div class="logo">Vida<span>Integral</span></div>
+            <div class="nav-links">
+                <a href="#filosofia">Filosofía</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#sobre-nosotros">Sobre Nosotros</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <a href="#contacto" class="cta-button">Agendar Sesión</a>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transforma tu vida y potencia tu rendimiento</h1>
+            <p>En un mundo distraído por la "matrix" cotidiana, te brindamos las herramientas para reconectar con tu potencial y lograr un crecimiento exponencial en todas las áreas de tu vida</p>
+            <div class="hero-buttons">
+                <a href="#servicios" class="cta-button">Descubre nuestros servicios</a>
+                <a href="#contacto" class="secondary-button">Contacta con nosotros</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Filosofía -->
+    <section class="philosophy" id="filosofia">
+        <h2>Nuestra Filosofía</h2>
+        <p>En VidaIntegral creemos que en el ajetreo diario, solemos desconectarnos de nuestra esencia. La vida moderna nos envuelve en una "matrix" que nos aleja de nuestro bienestar integral. Nuestra misión es brindarte todas las herramientas para acercarte a disfrutar el esfuerzo y lograr cualquier tipo de meta que te quieras proponer.</p>
+        
+        <div class="triad-container">
+            <div class="triad-item">
+                <div class="triad-icon">🧠</div>
+                <h3>Mentalidad</h3>
+                <p>Desarrollar un mindset de crecimiento que te permita superar limitaciones, gestionar emociones y crear estrategias efectivas para cumplir tus objetivos. La vida es una sola, y mereces disfrutarla plenamente.</p>
+            </div>
+            <div class="triad-item">
+                <div class="triad-icon">💪</div>
+                <h3>Cuerpo</h3>
+                <p>Nutrir tu cuerpo con alimentación consciente, actividad física adecuada y hábitos saludables que potencien tu energía para llegar a la vejez con vitalidad y fuerza.</p>
+            </div>
+            <div class="triad-item">
+                <div class="triad-icon">📈</div>
+                <h3>Crecimiento Exponencial</h3>
+                <p>Te ayudamos a combinar tu desarrollo personal y profesional, integrando herramientas prácticas que te permitirán alcanzar un crecimiento exponencial en todas las áreas de tu vida.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section class="services" id="servicios">
+        <div class="section-title">
+            <h2>Nuestros Servicios</h2>
+            <p>Ofrecemos soluciones personalizadas para integrar todos los aspectos de tu vida, reconociendo que están intrínsecamente conectados.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coaching de desarrollo personal y profesional">
+                </div>
+                <div class="service-content">
+                    <h3>Coaching Personal y Profesional</h3>
+                    <div class="price-tag">$45.000 CLP por sesión</div>
+                    <p>Te ayudamos a reconectar con tu propósito, alinear tus objetivos personales y profesionales, y desarrollar estrategias efectivas para trascender las limitaciones de la vida cotidiana.</p>
+                    <p class="price-description">Paquete mensual: $160.000 CLP (4 sesiones)</p>
+                    <a href="#contacto" class="service-cta">Agendar sesión</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coaching de nutrición">
+                </div>
+                <div class="service-content">
+                    <h3>Coaching de Nutrición Moderna</h3>
+                    <div class="price-tag">$40.000 CLP por sesión</div>
+                    <p>Basado en el método de Guillermo Navarrete, te guiamos hacia una nutrición intuitiva y personalizada que armoniza con tu bioquímica única, sin dietas restrictivas ni culpas.</p>
+                    <p class="price-description">Plan completo: $180.000 CLP (5 sesiones con seguimiento)</p>
+                    <a href="#contacto" class="service-cta">Agendar sesión</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Access Consciousness">
+                </div>
+                <div class="service-content">
+                    <h3>Sesiones de Access Consciousness</h3>
+                    <div class="price-tag">$45.000 CLP por sesión</div>
+                    <p>Experimenta esta poderosa metodología que te ayuda a eliminar bloqueos y limitaciones utilizando herramientas prácticas para liberar energía y ampliar tu consciencia.</p>
+                    <p class="price-description">Pack de 3 sesiones: $120.000 CLP</p>
+                    <a href="#contacto" class="service-cta">Agendar sesión</a>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1563351672-62b74891a28a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Baños de hielo">
+                </div>
+                <div class="service-content">
+                    <h3>Experiencia Ice Bath</h3>
+                    <div class="price-tag">$35.000 CLP por sesión</div>
+                    <p>Descubre el poder transformador de los baños de hielo para fortalecer tu sistema inmunológico, reducir inflamación, mejorar recuperación muscular y desarrollar resiliencia mental.</p>
+                    <p class="price-description">Pack introductorio: $90.000 CLP (3 sesiones)</p>
+                    <a href="#contacto" class="service-cta">Agendar experiencia</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="about" id="sobre-nosotros">
+        <div class="about-container">
+            <div class="about-intro">
+                <h2>Quiénes Somos</h2>
+                <p>Somos un equipo de coaches apasionados por ayudar a las personas a reconectar con su esencia y desarrollar todo su potencial, integrando cuerpo, mente y espíritu en armonía.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Foto de Bárbara Campos">
+                    </div>
+                    <div class="member-info">
+                        <h3>Bárbara Campos</h3>
+                        <span class="member-title">Coach Integral y Especialista en Nutrición Moderna</span>
+                        <p>Apasionada por la nutrición y el constante desafío personal, Bárbara es medallista en competencias Spartan Race y participa regularmente en carreras de 10K. Su filosofía se centra en escuchar al cuerpo mientras lo desafía a alcanzar nuevas cumbres, entrenando tanto el músculo como la mente para conseguir resultados extraordinarios.</p>
+                        <p>Con más de 15 años de experiencia en el mundo corporativo liderando equipos de alto rendimiento, Bárbara ha perfeccionado el arte de potenciar el talento humano. En constante búsqueda del equilibrio mental y emocional, ha desarrollado metodologías que permiten integrar el bienestar personal con el éxito profesional, transformando limitaciones en trampolines hacia metas que parecían inalcanzables.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">FB</a>
+                            <a href="#" class="social-icon">IG</a>
+                            <a href="#" class="social-icon">LI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Foto de Deidy Pérez">
+                    </div>
+                    <div class="member-info">
+                        <h3>Deidy Pérez</h3>
+                        <span class="member-title">Facilitadora de Access Consciousness y Especialista en Ice Bath</span>
+                        <p>Exploradora incansable de nuevas experiencias, Deidy descubrió Access Consciousness durante un viaje transformador que cambió completamente su percepción de la realidad y los límites. Su pasión por la gastronomía y las experiencias culinarias de diversas culturas le ha enseñado que, como en la cocina, en la vida los ingredientes correctos pueden crear algo extraordinario cuando se combinan con intuición y propósito.</p>
+                        <p>A través de su propio camino de autodescubrimiento, ha navegado por diversas comunidades espirituales y prácticas de crecimiento personal, reconectando con su esencia femenina y desmantelando creencias limitantes. Hoy comparte estas poderosas herramientas de transformación, guiando a otros a disolver barreras mentales y emocionales para crear una vida de posibilidades infinitas y auténtica libertad.</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon">FB</a>
+                            <a href="#" class="social-icon">IG</a>
+                            <a href="#" class="social-icon">LI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Sección de Blog y Recursos -->
+    <section class="resources" id="recursos">
+        <div class="section-title">
+            <h2>Recursos para tu Crecimiento</h2>
+            <p>Compartimos contenido valioso para apoyar tu camino de desarrollo personal y profesional.</p>
+        </div>
+        
+        <!-- Formulario de suscripción al blog -->
+        <div style="max-width: 600px; margin: 0 auto 3rem; text-align: center; background: var(--light-color); padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Suscríbete a nuestro blog semanal</h3>
+            <p style="margin-bottom: 1.5rem; color: #555;">Recibe herramientas, consejos y aprendizajes directamente en tu bandeja de entrada. Una dosis semanal de inspiración para tu crecimiento.</p>
+            <form id="subscribe-form" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <input type="email" id="subscribe-email" placeholder="Tu email" required style="padding: 0.8rem; border-radius: 5px; border: 1px solid #ddd; flex: 1; min-width: 200px;">
+                <button type="submit" style="background-color: var(--primary-color); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 5px; font-weight: 600; cursor: pointer;">Suscribirme</button>
+            </form>
+        </div>
+        
+        <div class="resources-container">
+            <div class="resources-tabs">
+                <div class="resources-tab active">Blog</div>
+                <div class="resources-tab">Libros Recomendados</div>
+            </div>
+            
+            <div class="resources-content blog-content">
+                <!-- Artículos del Blog -->
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Imagen de blog">
+                    </div>
+                    <div class="resource-content">
+                        <h3>Cómo escapar de la matrix cotidiana</h3>
+                        <div class="resource-meta">
+                            <span>📅 15 Abril, 2025</span>
+                            <span>👤 Bárbara</span>
+                        </div>
+                        <p>Descubre las señales de que estás viviendo en piloto automático y las técnicas para romper este ciclo y reconectar con la vida que realmente deseas vivir...</p>
+                        <a href="#" class="resource-link">Leer más →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="https://images.unsplash.com/photo-1623859763838-a304cbfd4901?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Imagen de blog">
+                    </div>
+                    <div class="resource-content">
+                        <h3>Nutrición moderna: más allá de las calorías</h3>
+                        <div class="resource-meta">
+                            <span>📅 8 Abril, 2025</span>
+                            <span>👤 Bárbara</span>
+                        </div>
+                        <p>Por qué el enfoque tradicional de dietas no funciona y cómo la nutrición moderna entiende la bioquímica individual para un verdadero bienestar...</p>
+                        <a href="#" class="resource-link">Leer más →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="https://images.unsplash.com/photo-1563351672-62b74891a28a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Imagen de blog">
+                    </div>
+                    <div class="resource-content">
+                        <h3>El poder transformador de los baños de hielo</h3>
+                        <div class="resource-meta">
+                            <span>📅 1 Abril, 2025</span>
+                            <span>👤 Deidy</span>
+                        </div>
+                        <p>Descubre cómo esta práctica ancestral puede revolucionar tu bienestar físico y mental, fortaleciendo tu sistema inmunológico y desarrollando resiliencia...</p>
+                        <a href="#" class="resource-link">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección de Libros Recomendados (inicialmente oculta) -->
+            <div class="resources-content books-content" style="display: none;">
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="https://images.unsplash.com/photo-1543365067-fa127bcb2303?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Libro recomendado">
+                    </div>
+                    <div class="resource-content">
+                        <h3>Atomic Habits - James Clear</h3>
+                        <p>Una guía práctica y probada para formar buenos hábitos y romper los malos, revelando cómo pequeños cambios pueden llevar a resultados extraordinarios.</p>
+                        <a href="#" class="resource-link">Ver reseña completa →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="https://images.unsplash.com/photo-1535957998253-26ae1ef29506?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Libro recomendado">
+                    </div>
+                    <div class="resource-content">
+                        <h3>Mindset - Carol S. Dweck</h3>
+                        <p>Un libro revolucionario que muestra cómo nuestras creencias sobre nuestras propias capacidades pueden determinar profundamente nuestro éxito en todas las áreas de la vida.</p>
+                        <a href="#" class="resource-link">Ver reseña completa →</a>
+                    </div>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-image">
+                        <img src="https://images.unsplash.com/photo-1594312915251-48db9280c8f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Libro recomendado">
+                    </div>
+                    <div class="resource-content">
+                        <h3>El Hombre en Busca de Sentido - Viktor Frankl</h3>
+                        <p>Una poderosa historia de superación y reflexión filosófica sobre cómo encontrar propósito en las circunstancias más adversas de la vida.</p>
+                        <a href="#" class="resource-link">Ver reseña completa →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="section-title">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <p>Estas son algunas experiencias de personas que han trabajado con nosotros.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">El coaching integral me ayudó a entender cómo mis hábitos alimenticios afectaban mi rendimiento laboral. Ahora tengo más energía, mejor concentración y he logrado un equilibrio que no creía posible.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de cliente">
+                    </div>
+                    <div class="author-info">
+                        <h4>Laura Martínez</h4>
+                        <p>Ejecutiva de Marketing</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">Las sesiones de Access Consciousness con Deidy transformaron completamente mi perspectiva sobre las limitaciones que yo mismo me había impuesto. Aprendí a eliminar barreras mentales y ahora vivo con mayor libertad y confianza.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Foto de cliente">
+                    </div>
+                    <div class="author-info">
+                        <h4>Carlos Rodríguez</h4>
+                        <p>Emprendedor</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">El enfoque nutricional de Bárbara me mostró que no necesitaba dietas extremas para alcanzar mis objetivos. Aprendí a escuchar mi cuerpo y a hacer elecciones que me hacen sentir bien. He perdido peso sin sacrificar el placer de comer.</p>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto de cliente">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ana Gómez</h4>
+                        <p>Diseñadora Gráfica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact" id="contacto">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Contacta Con Nosotros</h2>
+                <p>Estamos aquí para ayudarte a transformar tu vida. Ponte en contacto con nosotros para agendar una sesión o resolver cualquier duda que tengas.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p>+56 9 1234 5678</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:contacto@vidaintegral.cl">contacto@vidaintegral.cl</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Ubicación</h4>
+                            <p>Consultas online y presenciales en Santiago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form action="https://formspree.io/f/xyyqnglk" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Tu dirección de email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Servicio de interés</label>
+                        <select id="service" name="service" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="coaching-personal">Coaching Personal y Profesional</option>
+                            <option value="coaching-nutricion">Coaching de Nutrición Moderna</option>
+                            <option value="access-consciousness">Sesiones de Access Consciousness</option>
+                            <option value="ice-bath">Experiencia Ice Bath</option>
+                            <option value="otro">Otro (especificar)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Vida<span>Integral</span></div>
+            
+            <div class="footer-links">
+                <a href="#filosofia">Filosofía</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#sobre-nosotros">Sobre Nosotros</a>
+                <a href="#recursos">Recursos</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" class="social-link">FB</a>
+                <a href="#" class="social-link">IG</a>
+                <a href="#" class="social-link">WA</a>
+                <a href="#" class="social-link">LI</a>
+            </div>
+            
+            <p class="copyright">© 2025 VidaIntegral. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Funcionalidad para las pestañas de Recursos
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.resources-tab');
+            const blogContent = document.querySelector('.blog-content');
+            const booksContent = document.querySelector('.books-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remover la clase 'active' de todas las pestañas
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Agregar la clase 'active' a la pestaña clickeada
+                    this.classList.add('active');
+                    
+                    // Mostrar el contenido correspondiente
+                    if (this.textContent.trim() === 'Blog') {
+                        blogContent.style.display = 'grid';
+                        booksContent.style.display = 'none';
+                    } else {
+                        blogContent.style.display = 'none';
+                        booksContent.style.display = 'grid';
+                    }
+                });
+            });
+            
+            // Formulario de suscripción al blog
+            const subscribeForm = document.getElementById('subscribe-form');
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('subscribe-email').value;
+                    // Aquí iría la lógica para procesar la suscripción
+                    alert('¡Gracias por suscribirte! Pronto recibirás nuestro contenido semanal.');
+                    document.getElementById('subscribe-email').value = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
